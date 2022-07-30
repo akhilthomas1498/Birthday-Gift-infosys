@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class BGift
+{
+    public static int c = 0;
+    void fun(int i, int n, int k)
+    {
+    for(int j = i; j <= n; j++) 
+        {
+            if(k > 2 && (j % i == 0 ))
+            {
+                fun(j,n,k-1);
+            }
+            if(k == 2 && j % i == 0)
+            {
+                c++;
+            }
+        }
+        return;
+    }
+    public static void main(String[] arg)
+    {
+        Scanner sc = new Scanner(System.in);
+        BGift bg = new BGift();
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        if(k == 1)
+            c = n;
+        else
+        {
+            for(int x = 1; x <= n; x++)
+                bg.fun(x,n,k);
+        }
+        System.out.println(c%10000);
+        sc.close();
+    }
+}
